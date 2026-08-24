@@ -1,4 +1,4 @@
-# Semaine 1 — 24 et 26 août
+# Semaine 1 — Révisions
 
 ## Objectifs
 
