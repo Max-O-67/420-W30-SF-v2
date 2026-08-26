@@ -183,43 +183,44 @@ chacun une description et un montant sans tester sa classe concrète.
 
 ```mermaid
 classDiagram
-    direction LR
+    direction BT
 
     class ILigneFacturable {
         <<interface>>
-        +Description : string «get»
-        +PrixUnitaire : decimal «get»
-        +Quantite : int «get»
-        +Total : decimal «get»
+        + Description : string «get»
+        + PrixUnitaire : decimal «get»
+        + Quantite : int «get»
+        + Total : decimal «get»
     }
 
     class PlatCommande {
-        -m_nom : string
-        -m_prixUnitaire : decimal
-        -m_quantite : int
-        +PlatCommande(nom : string, prixUnitaire : decimal, quantite : int)
-        +Description : string «get»
-        +PrixUnitaire : decimal «get»
-        +Quantite : int «get»
-        +Total : decimal «get»
+        + ctor(nom : string, prixUnitaire : decimal, quantite : int)
+        + Description : string «get»
+        + PrixUnitaire : decimal «get»
+        + Quantite : int «get»
+        + Total : decimal «get»
+
+        + ToString() : string «override»
     }
 
     class FraisLivraison {
-        -m_distanceKm : int
-        -m_tarifParKm : decimal
-        +FraisLivraison(distanceKm : int, tarifParKm : decimal)
-        +Description : string «get»
-        +PrixUnitaire : decimal «get»
-        +Quantite : int «get»
-        +Total : decimal «get»
+        + Description : string «get»
+        + PrixUnitaire : decimal «get»
+        + Quantite : int «get»
+        + Total : decimal «get»
+
+        + ctor(tarifParKm : decimal, distanceKm : int)
+        + ToString() : string «override»
     }
 
     class Facture {
-        -m_lignes : List~ILigneFacturable~
-        +Facture()
-        +AjouterLigne(ligne : ILigneFacturable) void
-        +Lignes : IReadOnlyList~ILigneFacturable~ «get»
-        +MontantTotal : decimal «get»
+        - m_lignes : List~ILigneFacturable~
+        + Lignes : List~ILigneFacturable~ «get»
+        + MontantTotal : decimal «get»
+
+        + ctor()
+        + AjouterLigne(ligne : ILigneFacturable) void
+        + ToString() : string «override»
     }
 
     PlatCommande ..|> ILigneFacturable
