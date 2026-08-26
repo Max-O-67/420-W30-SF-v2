@@ -224,7 +224,7 @@ classDiagram
 
     PlatCommande ..|> ILigneFacturable
     FraisLivraison ..|> ILigneFacturable
-    Facture "1" o-- "0..*" ILigneFacturable : comporte
+    Facture "1" --> "0..*" ILigneFacturable : comporte
 ```
 
 Dans cette proposition, une ligne de facture expose les quatre informations
