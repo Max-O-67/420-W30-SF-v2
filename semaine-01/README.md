@@ -120,15 +120,28 @@ parole.
 - Lecture d'un diagramme de classes comprenant une association, des
   multiplicités et une réalisation d'interface.
 - SDK .NET 10 installé.
+- Git installé et compte GitHub accessible.
 
 Cet exercice ne demande ni test unitaire, ni injection de dépendances, ni
 patron de conception.
 
+### Références Git dans les notes de cours
+
+Consultez le chapitre **Git et plateformes collaboratives : versionner,
+collaborer et réviser**, particulièrement les sections suivantes :
+
+- **Du fichier au dépôt distant**, pour les espaces de travail et les commandes
+  essentielles;
+- **Construire un historique lisible**, pour les commits cohérents;
+- **Collaborer autour d'un dépôt distant**, pour le scénario reproductible et
+  l'association du dépôt local à GitHub;
+- **Protéger le contenu du dépôt — Construire un `.gitignore`**, pour exclure
+  les fichiers générés et personnels.
+
 ### Contexte et matériel de départ
 
-Le projet console fourni dans
-`e01-facture-polymorphe/Restaurant.Console` compile, mais ne contient aucune
-classe du modèle.
+Vous créerez une solution et un projet C# vides pour implanter le modèle. Créez
+ce travail dans un dossier qui n'est pas déjà contenu dans un autre dépôt Git.
 
 Une facture de restaurant contient plusieurs sortes de lignes facturables.
 
@@ -157,7 +170,70 @@ chacun une description et un montant sans tester sa classe concrète.
 - [ ] La relation entre `Facture` et les lignes indique qu'une facture peut
   contenir zéro ou plusieurs lignes.
 
-### Exercice 2.2 — Implanter le modèle
+### Exercice 2.2 — Créer et publier le dépôt
+
+#### Avant de commencer
+
+Disposez d'un diagramme suffisamment stable pour nommer les types, leurs
+responsabilités et leurs relations.
+
+#### À faire
+
+1. Créez une solution nommée `S01E02_Revisions_Facture`.
+2. Dans cette solution, créez un projet C# **Vide** portant lui aussi le nom
+   `S01E02_Revisions_Facture` et ciblant **.NET 10**.
+3. Ajoutez le projet à la solution, puis vérifiez que les fichiers `.sln` et
+   `.csproj` sont bien présents. Dans le fichier `.csproj`, la cible doit être
+   `net10.0`.
+4. À la racine du dépôt, créez un fichier nommé exactement `.gitignore`.
+
+> [!TIP]
+> Le site [gitignore.io](https://www.toptal.com/developers/gitignore/) peut
+> générer un bon point de départ. Utilisez les mots-clés `Windows`, `macOS`, `Linux`,
+> `VisualStudio`, `VisualStudioCode` et `CSharp`, puis lisez le fichier généré
+> avant de l'enregistrer. Les dossiers `bin/` et `obj/` ne doivent pas être
+> versionnés.
+
+5. Ouvrez un terminal à la racine de la solution et initialisez le dépôt :
+
+```bash
+git init
+git status
+```
+
+6. Créez le premier commit :
+
+```bash
+git add .
+git status
+git commit -m "Crée la solution de facture"
+git branch -M main
+```
+
+7. Sur GitHub, créez un dépôt vide nommé
+   `S01E02_Revisions_Facture`. N'ajoutez pas de `README`, de `.gitignore` ou de
+   licence depuis GitHub, puisque votre dépôt local contient déjà un commit.
+8. Associez le dépôt local au dépôt GitHub, puis poussez la branche `main` en
+   remplaçant l'adresse ci-dessous par l'URL fournie par GitHub :
+
+```bash
+git remote add origin URL_DU_DEPOT
+git remote -v
+git push --set-upstream origin main
+```
+
+9. Ouvrez le dépôt sur GitHub et confirmez que la solution, le projet et le
+   fichier `.gitignore` y apparaissent, mais pas les dossiers `bin/` et `obj/`.
+
+#### Résultat attendu
+
+- [ ] La solution et le projet portent le nom `S01E02_Revisions_Facture`.
+- [ ] Le projet cible `net10.0`.
+- [ ] Le fichier `.gitignore` est présent et exclut les fichiers générés.
+- [ ] La branche locale `main` suit la branche distante `origin/main`.
+- [ ] Le premier commit est visible sur GitHub.
+
+### Exercice 2.3 — Implanter le modèle
 
 #### Avant de commencer
 
@@ -174,6 +250,16 @@ responsabilités et leurs relations.
 4. Codez `Facture` afin qu'elle ajoute des lignes et calcule le total sans
    connaître les classes concrètes.
 5. Protégez la collection interne contre les modifications directes.
+6. Compilez la solution et corrigez les erreurs avant de versionner cette
+   étape.
+7. Créez un commit cohérent, puis poussez-le sur GitHub :
+
+```bash
+git add .
+git status
+git commit -m "Implante le modèle de facture polymorphe"
+git push
+```
 
 #### Résultat attendu
 
@@ -182,12 +268,13 @@ responsabilités et leurs relations.
 - [ ] `Facture` traite toutes les lignes par le type abstrait commun.
 - [ ] Aucun `if`, `switch` ou test de type ne choisit le calcul à effectuer.
 - [ ] La collection interne n'est pas modifiable par l'appelant.
+- [ ] Le commit de l'implantation est visible sur GitHub.
 
-### Exercice 2.3 — Valider le comportement
+### Exercice 2.4 — Valider le comportement et remettre la preuve
 
 #### Avant de commencer
 
-Le projet doit compiler et les comportements de l'exercice 2.2 doivent être
+Le projet doit compiler et les comportements de l'exercice 2.3 doivent être
 implantés.
 
 #### À faire
@@ -197,11 +284,28 @@ implantés.
    - une livraison de 5 km à 2,50 $ par kilomètre donne 12,50 $;
    - le total attendu est 41,50 $.
 2. Affichez chaque ligne ainsi que le total avec `Console.Out.WriteLine`.
-3. Depuis le répertoire `semaine-01`, compilez et exécutez avec :
+3. Depuis la racine de votre solution, compilez et exécutez le projet avec :
 
 ```bash
-dotnet run --project e01-facture-polymorphe/Restaurant.Console/Restaurant.Console.csproj
+dotnet run --project S01E02_Revisions_Facture/S01E02_Revisions_Facture.csproj
 ```
+
+4. Lorsque le résultat est exact, créez un dernier commit et poussez-le :
+
+```bash
+git add .
+git status
+git commit -m "Valide le calcul de la facture"
+git push
+```
+
+5. Ouvrez le dépôt sur GitHub et vérifiez que le dernier commit ainsi que les
+   fichiers du modèle et du scénario sont visibles.
+6. Prenez une capture d'écran de la page du dépôt GitHub. La capture doit
+   montrer le nom du dépôt, les fichiers et le dernier commit.
+7. Dans Teams, remettez à l'enseignant :
+   - la capture d'écran du dépôt GitHub;
+   - l'URL cliquable du dépôt.
 
 #### Résultat attendu
 
@@ -209,3 +313,6 @@ dotnet run --project e01-facture-polymorphe/Restaurant.Console/Restaurant.Consol
 - [ ] Les deux montants intermédiaires sont exacts.
 - [ ] Le total affiché vaut 41,50 $.
 - [ ] Une même boucle peut afficher toutes les lignes par leur interface.
+- [ ] Le dernier commit a été poussé et apparaît sur GitHub.
+- [ ] La capture d'écran et l'URL du dépôt ont été remises à
+  l'enseignant dans Teams.
