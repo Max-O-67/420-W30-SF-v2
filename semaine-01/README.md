@@ -170,6 +170,85 @@ chacun une description et un montant sans tester sa classe concrète.
 - [ ] La relation entre `Facture` et les lignes indique qu'une facture peut
   contenir zéro ou plusieurs lignes.
 
+#### Une possibilité de modélisation
+
+> [!IMPORTANT]
+> Réalisez d'abord votre propre diagramme et faites-le approuver ou comparez-le
+> avec celui d'une autre équipe. Ouvrez ensuite la proposition ci-dessous. Il
+> ne s'agit pas de l'unique modélisation possible : vous devez être capable
+> d'expliquer vos propres choix.
+
+<details>
+<summary>Afficher une possibilité de modélisation</summary>
+
+```mermaid
+classDiagram
+    direction LR
+
+    class ILigneFacturable {
+        <<interface>>
+        +Description : string «get»
+        +PrixUnitaire : decimal «get»
+        +Quantite : int «get»
+        +Total : decimal «get»
+    }
+
+    class PlatCommande {
+        -m_nom : string
+        -m_prixUnitaire : decimal
+        -m_quantite : int
+        +PlatCommande(nom : string, prixUnitaire : decimal, quantite : int)
+        +Description : string «get»
+        +PrixUnitaire : decimal «get»
+        +Quantite : int «get»
+        +Total : decimal «get»
+    }
+
+    class FraisLivraison {
+        -m_distanceKm : int
+        -m_tarifParKm : decimal
+        +FraisLivraison(distanceKm : int, tarifParKm : decimal)
+        +Description : string «get»
+        +PrixUnitaire : decimal «get»
+        +Quantite : int «get»
+        +Total : decimal «get»
+    }
+
+    class Facture {
+        -m_lignes : List~ILigneFacturable~
+        +Facture()
+        +AjouterLigne(ligne : ILigneFacturable) void
+        +Lignes : IReadOnlyList~ILigneFacturable~ «get»
+        +MontantTotal : decimal «get»
+    }
+
+    PlatCommande ..|> ILigneFacturable
+    FraisLivraison ..|> ILigneFacturable
+    Facture "1" o-- "0..*" ILigneFacturable : comporte
+```
+
+Dans cette proposition, une ligne de facture expose les quatre informations
+classiques suivantes :
+
+- une description;
+- un prix unitaire;
+- une quantité entière;
+- un total calculé.
+
+Pour les frais de livraison, le tarif par kilomètre joue le rôle du prix
+unitaire et la distance entière joue le rôle de la quantité.
+
+Questions de comparaison :
+
+1. Votre interface expose-t-elle seulement ce dont `Facture` a besoin?
+2. Les types des propriétés correspondent-ils dans l'interface et les classes?
+3. Avez-vous placé des multiplicités uniquement sur la relation de contenu?
+4. Votre modèle permet-il à `Facture` de calculer son montant sans tester le
+   type concret des lignes?
+5. Pouvez-vous justifier une différence entre votre modèle et cette proposition?
+
+</details>
+
 ### Exercice 2.2 — Créer et publier le dépôt
 
 #### Avant de commencer
@@ -181,7 +260,7 @@ responsabilités et leurs relations.
 
 1. Créez une solution nommée `S01E02_Revisions_Facture`.
 2. Dans cette solution, créez un projet C# **Vide** portant lui aussi le nom
-   `S01E02_Revisions_Facture` et ciblant **.NET 10**.
+   `S01E02_Revisions_Facture.Console` et ciblant **.NET 10**.
 3. Ajoutez le projet à la solution, puis vérifiez que les fichiers `.sln` et
    `.csproj` sont bien présents. Dans le fichier `.csproj`, la cible doit être
    `net10.0`.
