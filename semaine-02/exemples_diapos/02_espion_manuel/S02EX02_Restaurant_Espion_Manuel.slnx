@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="S02EX02_Restaurant_Espion_Manuel/S02EX02_Restaurant_Espion_Manuel.csproj" />
+  <Project Path="S02EX02_Restaurant_Espion_Manuel.Tests/S02EX02_Restaurant_Espion_Manuel.Tests.csproj" />
+</Solution>

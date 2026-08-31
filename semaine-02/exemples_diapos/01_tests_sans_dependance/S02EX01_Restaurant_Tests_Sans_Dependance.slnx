@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="S02EX01_Restaurant_Tests_Sans_Dependance/S02EX01_Restaurant_Tests_Sans_Dependance.csproj" />
+  <Project Path="S02EX01_Restaurant_Tests_Sans_Dependance.Tests/S02EX01_Restaurant_Tests_Sans_Dependance.Tests.csproj" />
+</Solution>

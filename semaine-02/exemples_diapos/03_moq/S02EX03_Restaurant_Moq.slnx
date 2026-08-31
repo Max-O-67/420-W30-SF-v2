@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="S02EX03_Restaurant_Moq/S02EX03_Restaurant_Moq.csproj" />
+  <Project Path="S02EX03_Restaurant_Moq.Tests/S02EX03_Restaurant_Moq.Tests.csproj" />
+</Solution>
