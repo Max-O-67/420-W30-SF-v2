@@ -14,6 +14,13 @@ tests progressivement sans modifier le code de production.
 
 ## Démarrage
 
+### À partir de Visual Studio
+
+- Compilez la solution : allez dans le menu `Générer` puis `Générer la solution`.
+- Exécutez les tests de la solutions : allez dans le menu `Tests` puis `Exécuter tous les tests`
+
+### Ou en ligne de commandes
+
 Depuis ce répertoire :
 
 ```bash
