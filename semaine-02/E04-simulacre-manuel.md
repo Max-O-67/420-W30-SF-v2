@@ -89,6 +89,9 @@ public sealed class ExpediteurCuisineSimulacre : IExpediteurCuisine
 
 ## 2. Vérifier la transmission valide
 
+Créez `ServiceTransmissionCuisineTests.cs`. Les trois scénarios de cet exercice
+seront écrits dans ce fichier.
+
 Construisez `C-1042` avec deux poutines à 14,50 $ et une soupe à 6,00 $.
 Passez explicitement `0m` comme pourcentage de rabais à chacune des lignes.
 Injectez le simulacre dans le service et vérifiez :

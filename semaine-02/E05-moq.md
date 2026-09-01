@@ -25,6 +25,8 @@ dotnet restore
 ```
 
 Ajoutez `using Moq;` dans la classe de tests qui utilisera `Mock<T>`.
+Créez `ServiceFinalisationCommandeTests.cs` pour les quatre scénarios de cet
+exercice.
 
 ## Modèle utile maintenant
 

@@ -50,7 +50,8 @@ public sealed class Commande
 
     public int NombreArticles
     {
-        get {
+        get
+        {
             return m_lignes.Sum(ligne => ligne.Quantite);
         }
     }

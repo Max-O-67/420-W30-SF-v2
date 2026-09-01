@@ -45,8 +45,8 @@ classDiagram
         + Numero : string «get»
         + Lignes : IReadOnlyList~LigneCommande~ «get»
         + EstVide : bool «get»
-        + SousTotal() decimal «get»
-        + NombreArticles() int «get»
+        + SousTotal : decimal «get»
+        + NombreArticles : int «get»
         
         + AjouterLigne(ligne : LigneCommande) void
     }
@@ -83,22 +83,30 @@ Les cas à 0 % et à 100 % vérifient explicitement les deux limites permises.
 > `double` reçus par `InlineData` en `decimal`, ou utiliser `MemberData` pour
 > fournir directement des valeurs `decimal`.
 
-## 3. Commande et exceptions
+## 3. Valider `LigneCommande`
+
+Dans `LigneCommandeTests.cs`, vérifiez les refus suivants :
+
+- code de plat vide;
+- description vide;
+- prix unitaire négatif;
+- quantité égale à zéro;
+- rabais inférieur à 0 % ou supérieur à 100 %.
+
+Utilisez `Assert.Throws<T>()`. Pour chaque `ArgumentOutOfRangeException`,
+vérifiez également `ParamName`.
+
+## 4. Tester `Commande`
 
 Créez `CommandeTests.cs`, puis vérifiez :
 
 - une commande vide : `EstVide`, sous-total `0m`, zéro article;
-- le scénario du récit : sous-total net `32.10m`, trois articles;
-- une commande contenant une ligne avec rabais, afin de prouver que
-  `SousTotal` utilise automatiquement le montant net;
-- code de plat vide;
-- prix unitaire négatif;
-- quantité égale à zéro;
-- rabais inférieur à 0 % ou supérieur à 100 %;
+- le scénario du récit : la ligne avec rabais produit automatiquement un
+  sous-total net de `32.10m` et la commande contient trois articles;
+- numéro de commande vide;
 - ajout d'une ligne `null`.
 
-Utilisez `Assert.Throws<T>()`. Pour chaque `ArgumentOutOfRangeException`,
-vérifiez également `ParamName`.
+Pour les deux refus, vérifiez le type précis de l'exception et `ParamName`.
 
 <details>
 <summary>Besoin d'aide dans les notes?</summary>
