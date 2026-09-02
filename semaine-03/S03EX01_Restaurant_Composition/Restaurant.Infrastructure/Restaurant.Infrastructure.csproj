@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Restaurant.Application\Restaurant.Application.csproj" />
+    <ProjectReference Include="..\Restaurant.Domaine\Restaurant.Domaine.csproj" />
+  </ItemGroup>
+</Project>

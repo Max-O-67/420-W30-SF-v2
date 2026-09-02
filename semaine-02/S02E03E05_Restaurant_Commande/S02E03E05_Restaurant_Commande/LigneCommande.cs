@@ -55,10 +55,13 @@ public sealed class LigneCommande
 
     public decimal PourcentageRabais { get; }
 
-    public decimal CalculerTotal()
+    public decimal Total
     {
-        decimal montantBrut = PrixUnitaire * Quantite;
-        decimal montantRabais = montantBrut * PourcentageRabais / 100m;
-        return montantBrut - montantRabais;
+        get
+        {
+            decimal montantBrut = PrixUnitaire * Quantite;
+            decimal montantRabais = montantBrut * PourcentageRabais / 100m;
+            return montantBrut - montantRabais;
+        }
     }
 }

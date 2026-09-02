@@ -37,7 +37,7 @@ classDiagram
         + PrixUnitaire : decimal «get»
         + Quantite : int «get»
         + PourcentageRabais : decimal «get»
-        + CalculerTotal() decimal
+        + Total : decimal «get»
     }
 
     class Commande {
@@ -66,8 +66,8 @@ explicitement `0m`, puis vérifiez que deux plats à 14,50 $ produisent exacteme
 
 ## 2. Tests paramétrés
 
-Utilisez une théorie pour vérifier que `CalculerTotal()` produit toujours le
-montant net. Combinez le prix, la quantité, le rabais et le total attendu.
+Utilisez une théorie pour vérifier que la propriété `Total` produit toujours
+le montant net. Combinez le prix, la quantité, le rabais et le total attendu.
 
 | Prix | Quantité | Rabais | Total net attendu |
 |---:|---:|---:|---:|

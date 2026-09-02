@@ -44,7 +44,7 @@ public sealed class Commande
     {
         get
         {
-            return m_lignes.Sum(ligne => ligne.CalculerTotal());
+            return m_lignes.Sum(ligne => ligne.Total);
         }
     }
 

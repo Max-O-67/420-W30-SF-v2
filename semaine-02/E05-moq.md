@@ -28,6 +28,11 @@ Ajoutez `using Moq;` dans la classe de tests qui utilisera `Mock<T>`.
 Créez `ServiceFinalisationCommandeTests.cs` pour les quatre scénarios de cet
 exercice.
 
+Dans E04, deux classes de simulacres manuels étaient nécessaires pour exprimer
+deux cas d'interaction différents. Ici, Moq permet de décrire les attentes dans
+chaque test avec `Verify(...)` et `Times`, sans créer une nouvelle classe de
+simulacre pour chaque scénario.
+
 ## Modèle utile maintenant
 
 ```mermaid
