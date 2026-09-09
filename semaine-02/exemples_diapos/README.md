@@ -85,5 +85,5 @@ Trois compléments sont intentionnels et ne changent pas ces scénarios :
 
 > [!NOTE]
 > La `LigneCommande` de ces exemples conserve volontairement le contrat court
-> montré dans les diapositives. La solution cumulative des exercices E03 à E05
+> montré dans les diapositives. La solution cumulative des exercices E02 à E04
 > possède un contrat plus complet, notamment le pourcentage de rabais.

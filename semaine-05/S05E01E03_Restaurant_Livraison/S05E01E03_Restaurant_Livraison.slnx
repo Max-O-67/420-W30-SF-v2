@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="S05E01E03_Restaurant_Livraison/S05E01E03_Restaurant_Livraison.csproj" />
+  <Project Path="S05E01E03_Restaurant_Livraison.Terminal/S05E01E03_Restaurant_Livraison.Terminal.csproj" />
+  <Project Path="S05E01E03_Restaurant_Livraison.Tests/S05E01E03_Restaurant_Livraison.Tests.csproj" />
+</Solution>

@@ -15,7 +15,9 @@
 
 ---
 
-## Exercice 1 (E00) — Expliquer la POO et ses quatre piliers
+## Exercice 1
+
+Expliquer la POO et ses quatre piliers.
 
 ### Objectifs spécifiques
 
@@ -104,7 +106,9 @@ parole.
 
 ---
 
-## Exercice 2 (E01) — Modéliser une facture polymorphe
+## Exercice 2
+
+Modéliser une facture polymorphe.
 
 ### Objectifs spécifiques
 
@@ -261,7 +265,7 @@ responsabilités et leurs relations.
 
 1. Créez une solution nommée `S01E02_Revisions_Facture`.
 2. Dans cette solution, créez un projet C# **Vide** portant lui aussi le nom
-   `S01E02_Revisions_Facture.Console` et ciblant **.NET 10**.
+   `S01E02_Revisions_Facture.Terminal` et ciblant **.NET 10**.
 3. Ajoutez le projet à la solution, puis vérifiez que les fichiers `.sln` et
    `.csproj` sont bien présents. Dans le fichier `.csproj`, la cible doit être
    `net10.0`.
@@ -307,7 +311,7 @@ git push --set-upstream origin main
 
 #### Résultat attendu
 
-- [ ] La solution et le projet portent le nom `S01E02_Revisions_Facture`.
+- [ ] La solution porte le nom `S01E02_Revisions_Facture` et le projet porte le nom `S01E02_Revisions_Facture.Terminal`.
 - [ ] Le projet cible `net10.0`.
 - [ ] Le fichier `.gitignore` est présent et exclut les fichiers générés.
 - [ ] La branche locale `main` suit la branche distante `origin/main`.
@@ -367,7 +371,7 @@ implantés.
 3. Depuis la racine de votre solution, compilez et exécutez le projet avec :
 
 ```bash
-dotnet run --project S01E02_Revisions_Facture/S01E02_Revisions_Facture.csproj
+dotnet run --project S01E02_Revisions_Facture.Terminal/S01E02_Revisions_Facture.Terminal.csproj
 ```
 
 4. Lorsque le résultat est exact, créez un dernier commit et poussez-le :
@@ -383,7 +387,7 @@ git push
    fichiers du modèle et du scénario sont visibles.
 6. Prenez une capture d'écran de la page du dépôt GitHub. La capture doit
    montrer le nom du dépôt, les fichiers et le dernier commit.
-7. Dans Teams, remettez à l'enseignant :
+7. Sur la plateforme d’enseignement, remettez à l'enseignant :
    - la capture d'écran du dépôt GitHub;
    - l'URL cliquable du dépôt.
 
@@ -395,4 +399,6 @@ git push
 - [ ] Une même boucle peut afficher toutes les lignes par leur interface.
 - [ ] Le dernier commit a été poussé et apparaît sur GitHub.
 - [ ] La capture d'écran et l'URL du dépôt ont été remises à
-  l'enseignant dans Teams.
+  l'enseignant sur la plateforme d’enseignement.
+
+Consultez la [liste des exercices ramassés](../exercices_ramassés.md) et la plateforme d’enseignement pour les échéances de remise.
