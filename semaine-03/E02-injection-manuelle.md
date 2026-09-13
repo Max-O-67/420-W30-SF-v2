@@ -17,7 +17,7 @@ Reprenez au besoin les explications de [E01](./E01-branches-git.md).
 Créez un nouveau dépôt GitHub privé, ajoutez les fichiers et répertoires du
 dossier `S03E02E03_Restaurant_Notification`, puis clonez-le.
 
-> [!IMPORTANT] À faire avant de téléverser les fichiers :
+> [!IMPORTANT]
 >
 > - Veillez à ce que les répertoires `bin` et `obj` ne soient pas inclus dans le dépôt.
 > - N'oubliez pas de créer un `.gitignore` pour les fichiers binaires et objets et autres fichiers temporaires.

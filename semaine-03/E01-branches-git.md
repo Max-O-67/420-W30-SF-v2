@@ -43,10 +43,11 @@ suivantes pourront utiliser simplement `git push`.
 
 ## 3. Récupérer une branche distante — 5 minutes
 
-Dans GitHub, créez `exercice/distance` à partir de `main`. Modifiez
-`distance.txt`, inscrivez votre ville et créez le commit dans cette branche.
+Dans GitHub, créez la branche `exercice/distance` à partir de la branche `main`.
+Toujours à partir de GitHub, modifiez `distance.txt`, inscrivez votre ville et
+créez le commit dans cette branche.
 
-Dans le terminal :
+À partir du terminal :
 
 ```bash
 git fetch origin

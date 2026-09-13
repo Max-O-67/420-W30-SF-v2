@@ -82,6 +82,13 @@ public sealed class AvertisseurCuisine
 
     public void AvertirCommandePrete(string numeroCommande)
     {
+        if (string.IsNullOrWhiteSpace(numeroCommande))
+        {
+            throw new ArgumentException(
+                "Le numéro de commande est obligatoire.",
+                nameof(numeroCommande));
+        }
+
         m_expediteurMessage.Envoyer(
             $"La commande {numeroCommande} est prête.");
     }
